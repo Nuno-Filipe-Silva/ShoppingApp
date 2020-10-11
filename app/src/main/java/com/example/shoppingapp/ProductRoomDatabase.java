@@ -79,7 +79,6 @@ public abstract class ProductRoomDatabase extends RoomDatabase {
             mProductDao.deleteAllProducts();
 
 
-
             for (int i = 0; i < products.length; i++) {
 
                 Product product = new Product(products[i]);

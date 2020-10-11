@@ -11,13 +11,13 @@ import java.util.List;
 @Dao
 public interface ProductDao {
 
-@Insert(onConflict = OnConflictStrategy.IGNORE)
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
     void insertProduct(Product product);
 
-@Query("DELETE FROM product_table")
+    @Query("DELETE FROM product_table")
     void deleteAllProducts();
 
-@Query("SELECT * FROM product_table ORDER BY productName ASC")
+    @Query("SELECT * FROM product_table ORDER BY productName ASC")
     LiveData<List<Product>> getAllProductsListLiveData();
 
 

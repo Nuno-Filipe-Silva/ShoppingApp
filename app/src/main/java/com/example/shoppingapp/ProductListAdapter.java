@@ -43,7 +43,7 @@ public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.
 
         private final TextView productNameItemTV;
 
-        private ProductListViewHolder (View itemView) {
+        private ProductListViewHolder(View itemView) {
 
             super(itemView);
 
@@ -72,7 +72,7 @@ public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.
 
         if (mProductList != null) {
 
-           final Product currentProduct = mProductList.get(position);
+            final Product currentProduct = mProductList.get(position);
 
             holder.productNameItemTV.setText(currentProduct.getProductName());
 

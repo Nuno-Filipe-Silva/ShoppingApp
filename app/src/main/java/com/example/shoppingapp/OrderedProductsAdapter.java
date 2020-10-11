@@ -74,7 +74,7 @@ public class OrderedProductsAdapter extends RecyclerView.Adapter<OrderedProducts
     @Override
     public int getItemCount() {
 
-        if(mOrderedProductsList != null) {
+        if (mOrderedProductsList != null) {
 
             return mOrderedProductsList.size();
 
@@ -85,4 +85,5 @@ public class OrderedProductsAdapter extends RecyclerView.Adapter<OrderedProducts
         }
 
     }
+
 }
