@@ -24,10 +24,6 @@ public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.
 
     private List<Product> mProductList;
 
-    private Order mOrder;
-
-    private OrderDao orderDao;
-
     private OrderedProductsViewModel orderedProductsViewModel;
 
     private Application application = new Application();
@@ -82,8 +78,9 @@ public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.
             button.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-
                     orderedProductsViewModel.insertProduct(new Order(clickedToAdd));
+
+
 
 
                 }

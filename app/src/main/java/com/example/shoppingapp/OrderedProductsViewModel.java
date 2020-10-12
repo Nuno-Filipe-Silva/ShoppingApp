@@ -35,5 +35,4 @@ public class OrderedProductsViewModel extends AndroidViewModel {
 
     }
 
-
 }
