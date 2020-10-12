@@ -43,7 +43,7 @@ public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.
 
             super(itemView);
 
-            button = itemView.findViewById(R.id.button);
+            button = itemView.findViewById(R.id.addToOrderButton);
 
             productNameItemTV = itemView.findViewById(R.id.textView);
 

@@ -36,6 +36,12 @@ public class OrderedProductsRepository {
 
     }
 
+    public void removeProductFromOrder(Order order) {
+
+        new removeProductFromOrderAsyncTask(mOrderDao).execute(order);
+
+    }
+
     private static class insertAsyncTask extends AsyncTask<Order, Void, Void> {
 
         private OrderDao mOrderDaoAsyncTask;
@@ -55,6 +61,30 @@ public class OrderedProductsRepository {
         }
 
     }
+
+    private static class removeProductFromOrderAsyncTask extends AsyncTask<Order, Void, Void> {
+
+        private OrderDao mOrderDaoRemoveProductFromOrderAsyncTask;
+
+        removeProductFromOrderAsyncTask(OrderDao orderDao) {
+
+            mOrderDaoRemoveProductFromOrderAsyncTask = orderDao;
+
+        }
+
+        @Override
+        protected Void doInBackground(Order... orders) {
+
+            mOrderDaoRemoveProductFromOrderAsyncTask.deleteProductFromOrder(orders[0]);
+
+            return null;
+        }
+    }
+
+
+
+
+
 
 }
 

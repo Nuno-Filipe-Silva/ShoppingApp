@@ -15,5 +15,15 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:text="placeholder text" />
 
+    <ImageButton
+        android:id="@+id/removeFromOrderButton"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="#64b5f6"
+        android:src="@drawable/ic_baseline_remove_circle_outline_24"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
