@@ -22,6 +22,4 @@ public interface OrderDao {
     @Delete
     void deleteProductFromOrder(Order order);
 
-
-
 }

@@ -26,7 +26,6 @@ public class OrderedProductsAdapter extends RecyclerView.Adapter<OrderedProducts
     private Application application = new Application();
 
 
-
     public OrderedProductsAdapter(Context context) {
 
         mLayoutInflater = LayoutInflater.from(context);
@@ -90,9 +89,7 @@ public class OrderedProductsAdapter extends RecyclerView.Adapter<OrderedProducts
 
         notifyDataSetChanged();
 
-
     }
-
 
     @Override
     public int getItemCount() {
