@@ -35,5 +35,10 @@ public class OrderedProductsViewModel extends AndroidViewModel {
 
     }
 
+    public void removeProductFromOrder(Order order) {
+
+        orderedProductsRepository.removeProductFromOrder(order);
+
+    }
 
 }

@@ -10,11 +10,11 @@ import java.util.List;
 @Entity(tableName = "order_table")
 public class Order {
 
-    /*@PrimaryKey
+    @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "order_id")
-    private int mOrderId;*/
+    private int mOrderId;
 
-    @PrimaryKey
+
     @NonNull
     @ColumnInfo(name = "name_product_ordered")
     private String mNameProductOrdered;
@@ -35,18 +35,18 @@ public class Order {
 
     }*/
 
-    public Order(String nameProductOrdered) {
+    public Order(@NonNull String nameProductOrdered) {
 
         this.mNameProductOrdered = nameProductOrdered;
 
     }
 
 
-   /* public void setOrderId(int orderId) {
+    public void setOrderId(int orderId) {
 
         this.mOrderId = orderId;
 
-    }*/
+    }
 
     public void setNameProductOrdered(String nameProductOrdered) {
 
@@ -75,12 +75,11 @@ public class Order {
     }
 
 
-
-   /* public int getOrderId() {
+    public int getOrderId() {
 
         return mOrderId;
 
-    }*/
+    }
 
 
 }

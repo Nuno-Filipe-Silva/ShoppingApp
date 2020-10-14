@@ -20,5 +20,4 @@ public interface ProductDao {
     @Query("SELECT * FROM product_table ORDER BY productName ASC")
     LiveData<List<Product>> getAllProductsListLiveData();
 
-
 }

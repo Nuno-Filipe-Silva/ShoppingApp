@@ -4,6 +4,8 @@ import android.content.Context;
 import android.os.AsyncTask;
 
 import androidx.annotation.NonNull;
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.Observer;
 import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
@@ -11,7 +13,7 @@ import androidx.sqlite.db.SupportSQLiteDatabase;
 
 import java.util.List;
 
-@Database(entities = {Product.class, Order.class}, version = 3, exportSchema = false)
+@Database(entities = {Product.class, Order.class}, version = 4, exportSchema = false)
 public abstract class ProductRoomDatabase extends RoomDatabase {
 
     public abstract ProductDao productDao();
@@ -62,8 +64,6 @@ public abstract class ProductRoomDatabase extends RoomDatabase {
 
         String[] products = {"product1", "product2", "product3", "product4", "product5"};
 
-        Order order;
-
         PopulateDbAsync(ProductRoomDatabase productRoomDatabase) {
 
             mProductDao = productRoomDatabase.productDao();
@@ -93,15 +93,3 @@ public abstract class ProductRoomDatabase extends RoomDatabase {
     }
 
 }
-
-
-
-
-
-
-
-
-
-
-
-

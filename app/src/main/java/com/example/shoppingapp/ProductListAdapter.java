@@ -24,10 +24,6 @@ public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.
 
     private List<Product> mProductList;
 
-    private Order mOrder;
-
-    private OrderDao orderDao;
-
     private OrderedProductsViewModel orderedProductsViewModel;
 
     private Application application = new Application();
@@ -47,7 +43,7 @@ public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.
 
             super(itemView);
 
-            button = itemView.findViewById(R.id.button);
+            button = itemView.findViewById(R.id.addToOrderButton);
 
             productNameItemTV = itemView.findViewById(R.id.textView);
 
@@ -84,7 +80,6 @@ public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.
                 public void onClick(View v) {
 
                     orderedProductsViewModel.insertProduct(new Order(clickedToAdd));
-
 
                 }
 

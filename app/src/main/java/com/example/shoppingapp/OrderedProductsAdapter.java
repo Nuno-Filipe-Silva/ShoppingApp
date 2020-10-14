@@ -1,9 +1,11 @@
 package com.example.shoppingapp;
 
+import android.app.Application;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -13,9 +15,16 @@ import java.util.List;
 
 public class OrderedProductsAdapter extends RecyclerView.Adapter<OrderedProductsAdapter.OrderedProductsViewHolder> {
 
+    private ImageButton button;
+
     private final LayoutInflater mLayoutInflater;
 
     private List<Order> mOrderedProductsList;
+
+    private OrderedProductsViewModel orderedProductsViewModel;
+
+    private Application application = new Application();
+
 
     public OrderedProductsAdapter(Context context) {
 
@@ -31,6 +40,8 @@ public class OrderedProductsAdapter extends RecyclerView.Adapter<OrderedProducts
 
             super(itemView);
 
+            button = itemView.findViewById(R.id.removeFromOrderButton);
+
             orderedProductNameTV = itemView.findViewById(R.id.orderedProductNameTV);
 
         }
@@ -41,6 +52,8 @@ public class OrderedProductsAdapter extends RecyclerView.Adapter<OrderedProducts
     @NonNull
     @Override
     public OrderedProductsViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+
+        orderedProductsViewModel = new OrderedProductsViewModel(application);
 
         View itemView = mLayoutInflater.inflate(R.layout.recyclerview_ordered_product_item, parent, false);
 
@@ -57,6 +70,15 @@ public class OrderedProductsAdapter extends RecyclerView.Adapter<OrderedProducts
 
             holder.orderedProductNameTV.setText(currentOrder.getNameProductOrdered());
 
+            button.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    orderedProductsViewModel.removeProductFromOrder(currentOrder);
+
+                }
+            });
+
         }
 
     }
@@ -67,9 +89,7 @@ public class OrderedProductsAdapter extends RecyclerView.Adapter<OrderedProducts
 
         notifyDataSetChanged();
 
-
     }
-
 
     @Override
     public int getItemCount() {

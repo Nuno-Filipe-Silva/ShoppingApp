@@ -36,15 +36,3 @@ public class ProductViewModel extends AndroidViewModel {
     }
 
 }
-
-
-
-
-
-
-
-
-
-
-
-

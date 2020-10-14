@@ -12,8 +12,6 @@ import java.util.List;
 
 public class OrderedProductsActivity extends AppCompatActivity {
 
-    private OrderedProductsViewModel orderedProductsViewModel;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,7 +25,7 @@ public class OrderedProductsActivity extends AppCompatActivity {
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        orderedProductsViewModel = ViewModelProviders.of(this).get(OrderedProductsViewModel.class);
+        OrderedProductsViewModel orderedProductsViewModel = ViewModelProviders.of(this).get(OrderedProductsViewModel.class);
 
         orderedProductsViewModel.getOrderedProductsListLiveDataVM().observe(this, new Observer<List<Order>>() {
                     @Override
@@ -41,4 +39,5 @@ public class OrderedProductsActivity extends AppCompatActivity {
         );
 
     }
+
 }

@@ -2,6 +2,7 @@ package com.example.shoppingapp;
 
 import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
+import androidx.room.Delete;
 import androidx.room.Ignore;
 import androidx.room.Insert;
 import androidx.room.OnConflictStrategy;
@@ -18,6 +19,7 @@ public interface OrderDao {
     @Query("SELECT * FROM ORDER_TABLE")
     LiveData<List<Order>> getOrderedProductListLiveDataDao();
 
-
+    @Delete
+    void deleteProductFromOrder(Order order);
 
 }
