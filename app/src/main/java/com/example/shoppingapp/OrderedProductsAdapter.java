@@ -66,7 +66,9 @@ public class OrderedProductsAdapter extends RecyclerView.Adapter<OrderedProducts
 
         if (mOrderedProductsList != null) {
 
-            final Order currentOrder = mOrderedProductsList.get(position);
+            final int currentPosition = holder.getAdapterPosition();
+
+            final Order currentOrder = mOrderedProductsList.get(currentPosition);
 
             holder.orderedProductNameTV.setText(currentOrder.getNameProductOrdered());
 
@@ -75,6 +77,8 @@ public class OrderedProductsAdapter extends RecyclerView.Adapter<OrderedProducts
                 public void onClick(View v) {
 
                     orderedProductsViewModel.removeProductFromOrder(currentOrder);
+
+                    notifyItemRemoved(currentPosition);
 
                 }
             });
