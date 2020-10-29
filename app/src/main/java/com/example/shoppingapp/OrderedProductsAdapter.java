@@ -78,7 +78,7 @@ public class OrderedProductsAdapter extends RecyclerView.Adapter<OrderedProducts
 
                     orderedProductsViewModel.removeProductFromOrder(currentOrder);
 
-                    notifyItemRemoved(currentPosition);
+                    notifyItemChanged(currentPosition);
 
                 }
             });
