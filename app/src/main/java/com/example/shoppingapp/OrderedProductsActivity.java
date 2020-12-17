@@ -7,6 +7,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.widget.Button;
+import android.widget.ImageButton;
 
 import java.util.List;
 
@@ -16,6 +18,8 @@ public class OrderedProductsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ordered_products);
+
+        ImageButton button = findViewById(R.id.removeFromOrderButton);
 
         final RecyclerView recyclerView = findViewById(R.id.orderedProductsRecyclerview);
 
@@ -33,10 +37,13 @@ public class OrderedProductsActivity extends AppCompatActivity {
 
                         orderedProductsAdapter.setOrderedProductsList(orders);
 
+                        recyclerView.getAdapter().notifyDataSetChanged();
+
                     }
                 }
 
         );
+
 
     }
 

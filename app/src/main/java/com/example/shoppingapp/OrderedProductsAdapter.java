@@ -44,7 +44,32 @@ public class OrderedProductsAdapter extends RecyclerView.Adapter<OrderedProducts
 
             orderedProductNameTV = itemView.findViewById(R.id.orderedProductNameTV);
 
+            button.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    int position = getAdapterPosition();
+
+                    Order order = mOrderedProductsList.get(position);
+
+                    orderedProductsViewModel.removeProductFromOrder(order);
+
+                    notifyDataSetChanged();
+
+                    mOrderedProductsList.remove(position);
+
+                    notifyItemRemoved(getAdapterPosition());
+
+                    //TODO a mOrderedProductsList não está a actualizar a currentPosition.
+                    //TODO o a order está na currentPosition 0, mas aparece 4, p.ex.
+                    // TODO parece estar a funcionar
+                }
+            });
+
+
         }
+
+
 
     }
 
@@ -62,7 +87,7 @@ public class OrderedProductsAdapter extends RecyclerView.Adapter<OrderedProducts
     }
 
     @Override
-    public void onBindViewHolder(@NonNull OrderedProductsAdapter.OrderedProductsViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull final OrderedProductsAdapter.OrderedProductsViewHolder holder, int position) {
 
         if (mOrderedProductsList != null) {
 
@@ -72,16 +97,7 @@ public class OrderedProductsAdapter extends RecyclerView.Adapter<OrderedProducts
 
             holder.orderedProductNameTV.setText(currentOrder.getNameProductOrdered());
 
-            button.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
 
-                    orderedProductsViewModel.removeProductFromOrder(currentOrder);
-
-                    notifyItemChanged(currentPosition);
-
-                }
-            });
 
         }
 
@@ -107,6 +123,12 @@ public class OrderedProductsAdapter extends RecyclerView.Adapter<OrderedProducts
             return 0;
 
         }
+
+    }
+
+    public Order getProductAtPosition(int position) {
+
+        return mOrderedProductsList.get(position);
 
     }
 
